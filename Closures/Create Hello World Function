@@ -1,0 +1,35 @@
+Ques. Write a function createHelloWorld. It should return a new function that always returns "Hello World".
+
+Example-
+
+Input: args = []
+Output: "Hello World"
+Explanation:
+const f = createHelloWorld();
+f(); // "Hello World"
+
+The function returned by createHelloWorld should always return "Hello World".
+
+code-
+
+var createHelloWorld = function createHelloWorld() {
+    
+    return function(...args) {
+        return "Hello World";
+        
+    }
+};
+
+#Logic-
+Outer function → createHelloWorld
+Inner function → which will return
+Inner function role → Always return "Hello World"
+
+
+const f = createHelloWorld();
+
+console.log(f());        // Hello World
+console.log(f(1,2,3));  // Hello World
+console.log(f("hi"));   // Hello World
+
+output will be always same
