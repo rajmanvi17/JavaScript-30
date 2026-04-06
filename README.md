@@ -19,8 +19,10 @@ This repository contains my daily solutions and learnings as I strengthen my Jav
 ---
 
 ## 📊 Progress
-✅ Start Date - 06/04/2026 
+✅ Start Date - 06/04/2026
+<br>
 ✔️ Completed: 1 / 30
+<br>
 ⏳ In Progress...
 
 ---
