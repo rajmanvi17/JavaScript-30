@@ -1,0 +1,31 @@
+https://leetcode.com/problems/counter/submissions/1971722926
+
+Ques- Given an integer n, return a counter function. This counter function initially returns n and then returns 1 more than the previous value every subsequent time it is called (n, n + 1, n + 2, etc).
+
+Code-
+
+var createCounter = function(n) {
+    
+    return function() {
+        return n++;
+        
+    };
+};
+
+
+
+Logic-
+You have to make a function - createCounter(n)
+What it does?
+-It returns a function
+-Whenever this function call:
+   - !st Time - n
+   - 2nd Time - n+1
+   - 3rd Time - n+2 & so on..
+-It always remember last number- This is called Closure
+
+Initial n = 10
+
+counter() → 10 → n becomes 11
+counter() → 11 → n becomes 12
+counter() → 12 → n becomes 13
