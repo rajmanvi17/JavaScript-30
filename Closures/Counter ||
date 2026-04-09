@@ -1,0 +1,59 @@
+https://leetcode.com/problems/counter-ii/submissions/1973692964
+
+Ques- Write a function createCounter. It should accept an initial integer init. It should return an object with three functions.
+
+The three functions are:
+
+increment() increases the current value by 1 and then returns it.
+decrement() reduces the current value by 1 and then returns it.
+reset() sets the current value to init and then returns it.
+
+Code-
+var createCounter = function(init) {
+    let current = init;
+
+    return {
+        increment: function() {
+            current++;
+            return current;
+        },
+        decrement: function() {
+            current--;
+            return current;
+        },
+        reset: function() {
+            current = init;
+            return current;
+        }
+    };
+    
+};
+
+
+
+createCounter(init) returns an object with three methods:
+increment(): increases current value by 1 and returns it
+decrement(): decreases current value by 1 and returns it
+reset(): sets current value back to init and returns it
+Uses a variable:
+current → stores the changing value
+init → stores the original value (constant reference)
+
+Initialization:
+
+let current = init;
+Logic:
+increment() → current++
+decrement() → current--
+reset() → current = init
+Concept:
+Closure is used to preserve current and init across function calls
+
+Flow Example:
+
+init = 5
+increment → 6
+reset     → 5
+decrement → 4
+Key Point:
+All three functions share and modify the same current variable through closure.
