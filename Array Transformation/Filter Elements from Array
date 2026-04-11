@@ -1,0 +1,89 @@
+https://leetcode.com/problems/filter-elements-from-array/submissions/1975455549
+
+## Custom Filter Function
+
+### Problem-
+
+* Given:
+
+  * `arr` → integer array
+  * `fn` → filtering function
+* Return a new array `filteredArr` containing only elements where:
+
+  ```
+  fn(arr[i], i) is truthy
+  ```
+* Constraint: Do not use built-in `Array.filter`
+
+---
+
+### Logic-
+
+* Create an empty array `result`
+* Loop through `arr`
+* For each element:
+
+  * If `fn(arr[i], i)` is true → add element to `result`
+
+---
+
+### Code-
+
+var filter = function(arr, fn) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (fn(arr[i], i)) {
+            result.push(arr[i]);
+        }
+    }
+
+    return result;
+};
+```
+
+---
+
+### Example
+
+```javascript
+function greaterThan10(n) {
+    return n > 10;
+}
+
+filter([0,10,20,30], greaterThan10);
+// Output: [20,30]
+```
+
+---
+
+### Step-by-Step
+
+```
+arr = [0,10,20,30]
+
+i = 0 → false  
+i = 1 → false   
+i = 2 → true   → add 20  
+i = 3 → true   → add 30  
+
+result = [20,30]
+```
+
+---
+
+### Key Points-
+
+* New array is created (original unchanged)
+* Only truthy condition elements are added
+* `fn` takes:
+
+  * value → `arr[i]`
+  * index → `i`
+
+---
+
+### One-Line Summary-
+
+* Iterate over array and include only those elements for which the function returns true.
+
