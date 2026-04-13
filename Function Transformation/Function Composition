@@ -1,0 +1,35 @@
+https://leetcode.com/problems/function-composition/submissions/1977442147
+
+Code-
+var compose = function(functions) {
+    return function(x) {
+        let result = x;
+
+        for (let i = functions.length - 1; i >= 0; i--) {
+            result = functions[i](result);
+        }
+
+        return result;
+    };
+};
+
+
+
+Function Composition-
+Problem-
+Given:
+functions → array of functions [f1, f2, ..., fn]
+
+Return a new function:
+
+fn(x) = f1(f2(f3(...fn(x))))
+
+If array is empty → return identity function:
+
+f(x) = x
+
+Logic-
+Return a function that takes x
+Start from the last function (right to left)
+Apply each function on the result of the previous one
+Return final value
