@@ -1,0 +1,19 @@
+https://leetcode.com/problems/return-length-of-arguments-passed/submissions/1978472279
+
+code-
+
+var argumentsLength = function(...args) {
+    return args.length;
+};
+
+
+
+argumentsLength Function
+Problem-
+Return the number of arguments passed to the function
+Works for any number of inputs
+  
+Logic-
+Use rest parameters (...args)
+Count how many values are received
+Return the length of args
