@@ -1,0 +1,34 @@
+https://leetcode.com/problems/allow-one-function-call/submissions/1978477411
+
+code-
+
+var once = function(fn) {
+    let called = false;
+
+    return function(...args) {
+        if (!called) {
+            called = true;
+            return fn(...args);
+        }
+        return undefined;
+    };
+};
+
+
+
+Once Function
+Problem-
+Given a function fn
+Return a new function that:
+- Calls fn only once
+- First call → returns result of fn
+- Next calls → return undefined
+
+Logic-
+- Use a variable to track if function is already called
+-Initially → called = false
+- On first call:
+  -> Execute fn
+  -> Set called = true
+-On next calls:
+ -> Return undefined
