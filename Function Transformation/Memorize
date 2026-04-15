@@ -1,0 +1,35 @@
+https://leetcode.com/problems/memoize/submissions/1979242056
+
+Code-
+
+var memoize = function(fn) {
+    let cache = {};
+
+    return function(...args) {
+        let key = JSON.stringify(args);
+
+        if (key in cache) {
+            return cache[key];
+        }
+
+        let result = fn(...args);
+        cache[key] = result;
+
+        return result;
+    };
+};
+
+
+Memoize Function-
+Problem:-
+Given a function fn
+Return a memoized version:
+- Same inputs → return cached result
+- New inputs → call fn and store result
+
+Logic-
+Create a cache (object / map)
+Store results using arguments as key
+On each call:
+- If key exists → return cached value
+- Else → compute, store, return
