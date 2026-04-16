@@ -1,0 +1,7 @@
+https://leetcode.com/problems/add-two-promises/submissions/1980297778
+
+Code- 
+var addTwoPromises = async function(promise1, promise2) {
+    const [val1, val2] = await Promise.all([promise1, promise2]);
+    return val1 + val2;
+};
