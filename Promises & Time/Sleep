@@ -1,0 +1,28 @@
+https://leetcode.com/problems/sleep/submissions/1981040389
+
+Code-
+
+var sleep = function(millis) {
+    return new Promise(resolve => setTimeout(resolve, millis));
+};
+
+------------------------------
+
+Visual Flow-
+
+sleep(100)
+   ↓
+setTimeout start
+   ↓ (100ms wait)
+resolve()
+   ↓
+.then() run
+
+-------------------------------
+
+Key Points-
+-setTimeout create delay
+-Promise make delay sync
+-JS do not block (non-blocking)
+-Exact time may differ
+
