@@ -1,0 +1,52 @@
+https://leetcode.com/problems/execute-asynchronous-functions-in-parallel/submissions/1981962269
+
+Execute multiple promises in parallel and resolve when all succeed, or reject on first failure.
+
+Code-
+
+var promiseAll = function(functions) {
+    return new Promise((resolve, reject) => {
+        let results = [];
+        let completed = 0;
+
+        if (functions.length === 0) {
+            resolve([]);
+        }
+
+        functions.forEach((fn, index) => {
+            fn()
+                .then((res) => {
+                    results[index] = res;
+                    completed++;
+
+                    if (completed === functions.length) {
+                        resolve(results);
+                    }
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    });
+};
+
+------------------------------------------------
+
+Key points-
+
+All functions run in parallel
+Maintain order using index
+Reject immediately if any fails
+Handle empty array case
+
+------------------------------------------------
+
+Steps-
+
+Start all functions together
+
+Function 1 → resolves after 200ms → store result
+
+All completed → resolve [5]
+
+
