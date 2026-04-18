@@ -1,0 +1,25 @@
+https://leetcode.com/problems/timeout-cancellation/submissions/1981871076
+
+Code-
+
+var cancellable = function(fn, args, t) {
+    const timerId = setTimeout(() => {
+        fn(...args);
+    }, t);
+
+    return function cancelFn() {
+        clearTimeout(timerId);
+    };
+};
+-
+
+
+-------------------------------------------
+Schedule a function with delay and allow it to be cancelled using clearTimeout.
+-------------------------------------------
+Key Points-
+setTimeout schedules execution
+clearTimeout cancels it
+Must store timer ID
+Execution depends on whether cancel is called before delay
+--------------------------------------------
