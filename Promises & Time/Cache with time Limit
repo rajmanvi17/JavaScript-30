@@ -1,0 +1,68 @@
+https://leetcode.com/problems/cache-with-time-limit/submissions/1981955903
+
+Store data with expiry timestamps and return values only if they are still valid.
+
+Code-
+
+var TimeLimitedCache = function() {
+    this.cache = new Map();
+};
+
+TimeLimitedCache.prototype.set = function(key, value, duration) {
+    const now = Date.now();
+    const expiry = now + duration;
+
+    const exists = this.cache.has(key) && this.cache.get(key).expiry > now;
+
+    this.cache.set(key, { value: value, expiry: expiry });
+
+    return exists;
+};
+
+TimeLimitedCache.prototype.get = function(key) {
+    const data = this.cache.get(key);
+
+    if (!data) return -1;
+
+    if (Date.now() > data.expiry) return -1;
+
+    return data.value;
+};
+
+TimeLimitedCache.prototype.count = function() {
+    let count = 0;
+    const now = Date.now();
+
+    for (let [key, data] of this.cache) {
+        if (data.expiry > now) {
+            count++;
+        }
+    }
+
+    return count;
+};
+
+------------------------------------------------------
+Steps-
+
+t = 0:
+set(1, 42, 100) → store expiry = 100ms → return false
+
+t = 50:
+get(1) → still valid → return 42  
+count() → 1  
+
+t = 100:
+key expires  
+
+t = 150:
+get(1) → expired → return -1
+
+--------------------------------------------------------
+
+key Points-
+
+Store expiry time with each key
+Check expiry before returning value
+set() returns true if key already exists (not expired)
+count() only counts valid (non-expired) keys
