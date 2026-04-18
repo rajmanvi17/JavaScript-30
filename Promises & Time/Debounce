@@ -1,0 +1,40 @@
+https://leetcode.com/problems/debounce/submissions/1981958844
+
+Delay function execution and cancel previous calls if triggered again within the delay time.
+
+Code-
+
+var debounce = function(fn, t) {
+    let timer;
+
+    return function(...args) {
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+            fn(...args);
+        }, t);
+    };
+};
+
+--------------------------------------------------
+
+Key Points-
+
+Only last call executes
+Previous calls get cancelled
+Uses clearTimeout + setTimeout
+Useful for:
+-Search inputs
+-Resize events
+-API optimization
+
+----------------------------------------------------
+Steps-
+
+t = 50ms
+
+Call at 50ms → start timer  
+Call at 75ms → cancel previous → start new timer  
+
+Final:
+execute at 125ms with input 2
