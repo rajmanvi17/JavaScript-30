@@ -1,0 +1,46 @@
+https://leetcode.com/problems/promise-time-limit/submissions/1981952797
+
+Run a function with a timer and reject if it exceeds the allowed time.
+
+Code-
+
+var timeLimit = function(fn, t) {
+    return async function(...args) {
+        return new Promise((resolve, reject) => {
+            
+            // Timeout logic
+            const timer = setTimeout(() => {
+                reject("Time Limit Exceeded");
+            }, t);
+
+            // Execute function
+            fn(...args)
+                .then((res) => {
+                    clearTimeout(timer);
+                    resolve(res);
+                })
+                .catch((err) => {
+                    clearTimeout(timer);
+                    reject(err);
+                });
+        });
+    };
+};
+
+
+----------------------------------------------
+
+Steps-
+fn takes 100ms  
+time limit = 50ms  
+
+50ms → timeout triggers → reject 
+fn result ignored
+-----------------------------------------------
+
+key points-
+Uses setTimeout for time limit
+Uses Promise to control resolve/reject
+clearTimeout prevents extra execution
+Works with async functions
+
