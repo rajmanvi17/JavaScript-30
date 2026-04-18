@@ -1,0 +1,25 @@
+https://leetcode.com/problems/timeout-cancellation/submissions/1981871076
+
+Call function immediately, repeat using setInterval, and stop using clearInterval.
+
+Code-
+
+var cancellable = function(fn, args, t) {
+    const timerId = setTimeout(() => {
+        fn(...args);
+    }, t);
+
+    return function cancelFn() {
+        clearTimeout(timerId);
+    };
+};
+
+--------------------------------------------------
+
+Key Points-
+First call is immediate (manual call)
+setInterval handles repeated execution
+clearInterval stops execution
+Must store interval ID
+
+
