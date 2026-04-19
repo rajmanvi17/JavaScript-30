@@ -1,0 +1,32 @@
+https://leetcode.com/problems/chunk-array/submissions/1982812705
+
+Split array into smaller subarrays of given size using loop and slice.
+
+Code-
+
+var chunk = function(arr, size) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+
+    return result;
+};
+
+
+-------------------------------------------------
+Steps-
+arr = [1,2,3,4,5], size = 2
+
+i = 0 → [1,2]  
+i = 2 → [3,4]  
+i = 4 → [5]  
+
+result = [[1,2],[3,4],[5]]
+-------------------------------------------------
+
+Key Points-
+i += size → jump by chunk size
+slice(i, i + size) → creates subarray
+Works even if last chunk is smaller
