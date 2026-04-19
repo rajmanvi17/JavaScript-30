@@ -1,0 +1,27 @@
+https://leetcode.com/problems/is-object-empty/submissions/1982795087
+
+Check if object or array has zero keys using Object.keys(obj).length === 0.
+
+Code-
+
+var isEmpty = function(obj) {
+    return Object.keys(obj).length === 0;
+};
+
+-----------------------------------------
+
+obj = {"x": 5, "y": 42}
+
+Object.keys(obj) → ["x","y"]
+length = 2
+
+result = false
+
+------------------------------------------
+
+Key Points
+Object.keys(obj) works for both:
+-objects → returns keys
+-arrays → returns indices
+Empty array → [] → length = 0
+Empty object → {} → length = 0
