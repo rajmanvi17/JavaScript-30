@@ -1,0 +1,24 @@
+https://leetcode.com/problems/array-prototype-last/submissions/1983620362
+
+Add a custom method to Array prototype to return the last element or -1 if empty.
+
+Code-
+
+Array.prototype.last = function() {
+    if (this.length === 0) return -1;
+    return this[this.length - 1];
+};
+
+---------------------------------------------------
+Steps
+nums = [null, {}, 3]
+
+length = 3  
+last index = 3 - 1 = 2  
+
+nums[2] = 3
+----------------------------------------------------
+Key Points-
+this refers to the array
+Works for all arrays globally
+Handles empty array case
