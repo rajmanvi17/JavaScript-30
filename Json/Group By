@@ -1,0 +1,36 @@
+https://leetcode.com/problems/group-by/submissions/1983678202
+
+Group array elements based on a function output into an object of arrays.
+
+Code-
+
+Array.prototype.groupBy = function(fn) {
+    let result = {};
+
+    for (let item of this) {
+        const key = fn(item);
+
+        if (!result[key]) {
+            result[key] = [];
+        }
+
+        result[key].push(item);
+    }
+
+    return result;
+};
+
+---------------------------------------------------------------
+
+Steps-
+item 1 → key = "1" → add to group "1"  
+item 2 → key = "1" → add to group "1"  
+item 3 → key = "2" → add to group "2"
+
+----------------------------------------------------------------
+
+Key Points-
+fn(item) decides grouping key
+Maintain order of elements
+Keys are strings
+Works on any array
