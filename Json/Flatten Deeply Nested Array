@@ -1,0 +1,44 @@
+https://leetcode.com/problems/flatten-deeply-nested-array/submissions/1984725124
+
+Recursively flatten array elements only up to given depth.
+
+Code-
+
+var flat = function(arr, n) {
+    let result = [];
+
+    function helper(currentArr, depth) {
+        for (let item of currentArr) {
+            if (Array.isArray(item) && depth > 0) {
+                helper(item, depth - 1);
+            } else {
+                result.push(item);
+            }
+        }
+    }
+
+    helper(arr, n);
+    return result;
+};
+
+
+--------------------------------------------------------------------
+
+Steps-
+arr = [1, 2, [3, 4]], n = 1
+
+depth = 1 → flatten allowed
+
+1 → push  
+2 → push  
+[3,4] → flatten → push 3,4  
+
+result = [1,2,3,4]
+
+---------------------------------------------------------------------
+
+Key Points-
+Flatten only when depth > 0
+Recursive approach
+Array.isArray() to check arrays
+Depth decreases each recursion
