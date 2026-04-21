@@ -1,0 +1,49 @@
+https://leetcode.com/problems/event-emitter/submissions/1984732884
+
+Build a system to register, trigger, and remove event-based callbacks.
+
+Code-
+
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    subscribe(event, callback) {
+        if (!this.events[event]) {
+            this.events[event] = [];
+        }
+
+        this.events[event].push(callback);
+
+        return {
+            unsubscribe: () => {
+                this.events[event] = this.events[event].filter(cb => cb !== callback);
+            }
+        };
+    }
+
+    emit(event, args = []) {
+        if (!this.events[event]) return [];
+
+        return this.events[event].map(cb => cb(...args));
+    }
+}
+
+
+-----------------------------------------------------------------------------------------
+
+Steps-
+subscribe → store callbacks  
+
+emit → run all callbacks → collect results  
+
+unsubscribe → remove callback  
+
+------------------------------------------------------------------------------------------
+
+Key Points-
+Stores multiple callbacks per event
+Maintains execution order
+unsubscribe() removes specific callback
+emit() returns array of results
