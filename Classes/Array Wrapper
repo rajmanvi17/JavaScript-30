@@ -1,0 +1,35 @@
+https://leetcode.com/problems/array-wrapper/submissions/1984736295
+
+Override valueOf and toString to customize addition and string behavior of objects.
+
+Code-
+
+class ArrayWrapper {
+    constructor(nums) {
+        this.nums = nums;
+    }
+
+    valueOf() {
+        return this.nums.reduce((sum, num) => sum + num, 0);
+    }
+
+    toString() {
+        return `[${this.nums.join(',')}]`;
+    }
+}
+
+--------------------------------
+
+Steps-
+
+obj1.valueOf() → 1 + 2 = 3  
+obj2.valueOf() → 3 + 4 = 7  
+
+3 + 7 = 10
+
+-------------------------------
+Key Points-
+valueOf() controls number conversion
+toString() controls string conversion
+reduce() used to sum array
+join() used for formatting
