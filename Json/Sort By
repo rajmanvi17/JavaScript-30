@@ -1,0 +1,28 @@
+https://leetcode.com/problems/sort-by/submissions/1984644895
+
+Sort array elements based on a function by comparing fn(a) and fn(b).
+
+Code-
+
+var sortBy = function(arr, fn) {
+    return arr.sort((a, b) => fn(a) - fn(b));
+};
+
+-------------------------------------
+
+Steps-
+arr = [5,4,1,2,3]
+
+Compare:
+fn(5) - fn(4) → 5 - 4 = 1  
+fn(1) - fn(2) → 1 - 2 = -1  
+
+Sorted result:
+[1,2,3,4,5]
+-------------------------------------
+
+Key Points-
+Uses built-in sort()
+Sorting based on function output
+fn(a) - fn(b) ensures ascending order
+No duplicate values from fn (as per problem
