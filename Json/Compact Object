@@ -1,0 +1,47 @@
+https://leetcode.com/problems/compact-object/submissions/1984728058
+
+Recursively remove all falsy values from objects and arrays.
+
+Code-
+
+var compactObject = function(obj) {
+    if (Array.isArray(obj)) {
+        return obj
+            .filter(Boolean)
+            .map(item => compactObject(item));
+    } 
+    else if (typeof obj === "object" && obj !== null) {
+        let result = {};
+
+        for (let key in obj) {
+            if (obj[key]) {
+                result[key] = compactObject(obj[key]);
+            }
+        }
+
+        return result;
+    }
+
+    return obj;
+};
+
+--------------------------------------------------------------
+
+Steps-
+
+Input: [null, 0, false, 1]
+
+null → remove  
+0 → remove  
+false → remove  
+1 → keep  
+
+result = [1]
+
+---------------------------------------------------------------
+
+Key Points-
+Use recursion for nested structures
+filter(Boolean) removes falsy values
+Works for both arrays and objects
+Keeps structure intact
