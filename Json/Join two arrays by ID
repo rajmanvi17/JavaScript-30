@@ -1,0 +1,44 @@
+https://leetcode.com/problems/join-two-arrays-by-id/submissions/1984721084]
+
+Merge two arrays by id using a map, override duplicates, and return sorted result.
+
+Code-
+
+var join = function(arr1, arr2) {
+    let map = new Map();
+
+    // Add arr1 elements
+    for (let obj of arr1) {
+        map.set(obj.id, obj);
+    }
+
+    // Merge arr2 elements
+    for (let obj of arr2) {
+        if (map.has(obj.id)) {
+            map.set(obj.id, { ...map.get(obj.id), ...obj });
+        } else {
+            map.set(obj.id, obj);
+        }
+    }
+
+    // Convert to array and sort
+    return Array.from(map.values()).sort((a, b) => a.id - b.id);
+};
+
+
+------------------------------------------------------
+
+Steps-
+arr1 → store ids 1,2  
+arr2 → id 3 → new entry  
+
+Final → [1,2,3] sorted
+
+------------------------------------------------------
+
+Key Points-
+-Use spread operator {...obj1, ...obj2} to merge
+arr2 values override arr1 if same key
+Ensure unique id
+Final array must be sorted
+
