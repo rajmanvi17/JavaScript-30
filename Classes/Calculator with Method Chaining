@@ -1,0 +1,63 @@
+https://leetcode.com/problems/calculator-with-method-chaining/submissions/1984739276
+
+Build a calculator that updates a running result and supports chaining by returning this.
+
+Code-
+
+class Calculator {
+    constructor(value) {
+        this.result = value;
+    }
+
+    add(num) {
+        this.result += num;
+        return this;
+    }
+
+    subtract(num) {
+        this.result -= num;
+        return this;
+    }
+
+    multiply(num) {
+        this.result *= num;
+        return this;
+    }
+
+    divide(num) {
+        if (num === 0) {
+            throw new Error("Division by zero is not allowed");
+        }
+        this.result /= num;
+        return this;
+    }
+
+    power(num) {
+        this.result = this.result ** num;
+        return this;
+    }
+
+    getResult() {
+        return this.result;
+    }
+}
+
+-------------------------------------------
+
+Steps-
+
+start = 10  
+
++5 → 15  
+-7 → 8  
+
+result = 8
+
+------------------------------------------
+
+KeyPoints-
+
+this enables chaining
+Operations update same result
+divide(0) throws error
+Clean and readable chaining
