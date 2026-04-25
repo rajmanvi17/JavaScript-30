@@ -1,0 +1,19 @@
+obj1 = {
+  "name": "Maan",
+  "age": 21,
+  "skills": {
+    "frontend": "React",
+    "backend": "Node"
+  },
+  "isActive": true
+}
+
+obj2 = {
+  "name": "Maan",
+  "age": 22,
+  "skills": {
+    "frontend": "React",
+    "backend": "Express"
+  },
+  "isActive": false
+}
